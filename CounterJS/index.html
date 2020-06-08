@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>counter</title>
+</head>
+<body>
+	<script type="text/javascript">
+		let counter = 1;
+
+		function add(n) {
+			counter += n;
+			update();
+		}
+
+		function update() {
+            window.webkit.messageHandlers.counter.postMessage(counter.toString());
+        }
+
+		setInterval(() => {
+			counter += 1;
+			update();
+		}, 1);
+
+        update();
+    </script>
+</body>
+</html>
